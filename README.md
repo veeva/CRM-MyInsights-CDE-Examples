@@ -3,7 +3,8 @@
 
 Examples of custom display elements (CDEs) that can be used with Veeva CRM MyInsights Studio.
 
-### This MyInsights CDE is open source and you are free to use and modify it according to the license.  Assistance with this CDE is not provided by Veeva Support.  Please use the Github issues section to log bugs or feature requests.  If you wish assistance with customizing this CDE to your company's requirements, please reach out to your designated Account Partner.
+### This MyInsights CDE is open source and you are free to use and modify it according to the license. Please join the MyInsights Community within VeevaConnect with your questions & feedback.  
+### Assistance with this CDE is not provided by Veeva Support. Please use the Github issues section to log bugs or feature requests. If you wish assistance with customizing this CDE to your company's requirements, please reach out to your designated Account Partner.
 These example CDEs are inteded to provide inspiration to the MyInsights Studio developer community.
 The example CDEs mentioned here demonstrate some of the capabilities of MyInsights, but do not necessarily represent best practices for creating MyInsights content.
 
