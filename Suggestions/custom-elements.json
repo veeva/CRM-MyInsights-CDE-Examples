@@ -1,0 +1,41 @@
+{
+	"schemaVersion": "1.0.0",
+	"readme": "",
+	"modules": [
+		{
+			"kind": "javascript-module",
+			"path": "src/suggestions.js",
+			"declarations": [
+				{
+					"kind": "class",
+					"description": "",
+					"name": "Suggestions",
+					"members": [
+						{
+							"kind": "field",
+							"name": "suggestionList",
+							"type": {
+								"text": "Array<{id: string, title: string, priority: string, expirationDate: string, postedDate: string, reason: string, dismissed: number, actioned: number, markedAsComplete: number}>"
+							}
+						}
+					],
+					"superclass": {
+						"name": "HTMLElement"
+					},
+					"tagName": "suggestions-cde",
+					"customElement": true
+				}
+			],
+			"exports": [
+				{
+					"kind": "custom-element-definition",
+					"name": "suggestions-cde",
+					"declaration": {
+						"name": "Suggestions",
+						"module": "src/suggestions.js"
+					}
+				}
+			]
+		}
+	]
+}

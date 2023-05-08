@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "1.0.0",
+	"readme": "",
+	"modules": [
+		{
+			"kind": "javascript-module",
+			"path": "src/simple-link.js",
+			"declarations": [
+				{
+					"kind": "class",
+					"description": "",
+					"name": "SimpleLink",
+					"members": [
+						{
+							"kind": "field",
+							"name": "linkURL",
+							"type": {
+								"text": "string"
+							}
+						},
+						{
+							"kind": "field",
+							"name": "displayText",
+							"type": {
+								"text": "string"
+							}
+						}
+					],
+					"superclass": {
+						"name": "HTMLElement"
+					},
+					"tagName": "simple-link",
+					"customElement": true
+				}
+			],
+			"exports": [
+				{
+					"kind": "custom-element-definition",
+					"name": "simple-link",
+					"declaration": {
+						"name": "SimpleLink",
+						"module": "src/simple-link.js"
+					}
+				}
+			]
+		}
+	]
+}

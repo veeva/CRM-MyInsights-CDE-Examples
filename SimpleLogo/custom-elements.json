@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "1.0.0",
+	"readme": "",
+	"modules": [
+		{
+			"kind": "javascript-module",
+			"path": "src/simple-logo.js",
+			"declarations": [
+				{
+					"kind": "class",
+					"description": "",
+					"name": "SimpleLogo",
+					"members": [
+						{
+							"kind": "field",
+							"name": "imageWidth?",
+							"type": {
+								"text": "number"
+							}
+						},
+						{
+							"kind": "field",
+							"name": "imageHeight?",
+							"type": {
+								"text": "number"
+							}
+						}
+					],
+					"superclass": {
+						"name": "HTMLElement"
+					},
+					"tagName": "simple-logo",
+					"customElement": true
+				}
+			],
+			"exports": [
+				{
+					"kind": "custom-element-definition",
+					"name": "simple-logo",
+					"declaration": {
+						"name": "SimpleLogo",
+						"module": "src/simple-logo.js"
+					}
+				}
+			]
+		}
+	]
+}
