@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/formatted-number-highlight.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FormattedNumberHighlight",
+          "members": [
+            {
+              "kind": "field",
+              "name": "title",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "currencyCode?",
+              "type": {
+                  "text": "string"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "formattednumber-highlight",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "formattednumber-highlight",
+          "declaration": {
+            "name": "FormattedNumberHighlight",
+            "module": "src/formatted-number-highlight.js"
+          }
+        }
+      ]
+    }
+  ]
+}
