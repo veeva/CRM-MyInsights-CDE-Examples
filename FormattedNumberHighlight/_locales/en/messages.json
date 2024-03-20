@@ -1,0 +1,11 @@
+{
+    "title": {
+        "message": "Title"
+    },
+    "value": {
+        "message": "Value"
+    },
+    "currencyCode": {
+        "message": "Currency Code (optional)"
+    }
+}
