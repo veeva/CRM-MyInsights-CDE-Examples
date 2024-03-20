@@ -179,8 +179,8 @@ Array<{
     id: string,                 // Id
     title: string,              // Title_vod__c
     priority: string,           // Priority_vod__c
-    expirationDate: string,     // Expiration_Date_vod__c
-    postedDate: string,         // Posted_Date__vod_c
+    expirationDate: StudioDate, // Expiration_Date_vod__c
+    postedDate: StudioDate,     // Posted_Date__vod_c
     reason: string,             // Reason_vod__c
     dismissed: number           // Dismissed_vod__c
     actioned: number            // Actioned_vod__c
@@ -189,8 +189,18 @@ Array<{
 **/
 
 /**
- * @prop {Array<{id, title, priority, expirationDate, postedDate, reason, dismissed, actioned, markedAsComplete}>} suggestionList
- */
+ * @prop {Array<{
+*    id: string, 
+*    title: string, 
+*    priority: string, 
+*    expirationDate: StudioDate, 
+*    postedDate: StudioDate, 
+*    reason: string, 
+*    dismissed: number, 
+*    actioned: number, 
+*    markedAsComplete: number
+*  }>} suggestionList
+*/
 class Suggestions extends HTMLElement {
     #suggestions = [];
 
@@ -223,45 +233,45 @@ class Suggestions extends HTMLElement {
         this.#update();
     }
 
-    #handleOpen () {
+    #handleOpen() {
         let sugg = this.#suggestions.find(s => s.id == this.activeSuggestionId);
 
         let imageData = (sugg.priority == "Urgent_vod") ? this.urgentPriorityImg : this.normalPriorityImg;
 
-        this.shadowRoot.getElementById("modal-title").innerHTML =`
+        this.shadowRoot.getElementById("modal-title").innerHTML = `
                 <img src="${imageData}" style="vertical-align: middle;" />
                 <span style="vertical-align: middle;">${sugg.title}</span>`;
 
         // Only show these lines if there is text
         let sReason = (sugg.reason != "") ? `<p>${sugg.reason}</p>` : "";
 
-        let postedDate = new Date(Date.parse(sugg.postedDate)).toLocaleDateString("en-US", {day: "numeric", month: "short", year: "numeric"});
+        let postedDate = new Date(Date.parse(sugg.postedDate)).toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
 
         this.shadowRoot.getElementById("modal-body").innerHTML = `
                     ${sReason}
                     <p>Posted on ${postedDate}</p>`;
-    
+
         // Show the modal
         this.shadowRoot.getElementById("modal").classList.remove("hidden");
     }
 
-    #closeModal () {
+    #closeModal() {
         this.shadowRoot.getElementById("modal").classList.add("hidden");
     }
 
-    #markCompleteCallback (sId, resp) {
+    #markCompleteCallback(sId, resp) {
         // Call this when `executeSuggestionAction` finishes
         // If the response indicates success, stop showing the suggestion that was marked complete
         // i.e. remove it from the private suggestion list
         if (resp && resp.success && resp.success === true) {
 
             this.#suggestions = this.#suggestions.filter(s => s.id != sId);
-            
+
             this.#update();
         }
     }
 
-    #handleMarkComplete (actionType) {
+    #handleMarkComplete(actionType) {
         let id = this.activeSuggestionId;
         console.log(`Applying action ${actionType} to suggestion id# ${id}...`);
 
@@ -301,7 +311,7 @@ class Suggestions extends HTMLElement {
 
             let imageData = (s.priority == "Urgent_vod") ? this.urgentPriorityImg : this.normalPriorityImg;
 
-            let postedDate = new Date(Date.parse(s.postedDate)).toLocaleDateString("en-US", {day: "numeric", month: "short", year: "numeric"});
+            let postedDate = new Date(Date.parse(s.postedDate)).toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
 
             let timeToExpiry = Date.parse(s.expirationDate) - Date.now();
             let daysToExpiry = Math.floor(timeToExpiry / (1000 * 60 * 60 * 24));    // ms to days
